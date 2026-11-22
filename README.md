@@ -26,6 +26,7 @@ See [the detailed six-month roadmap](curriculum/ROADMAP.md) for the exact topics
 ## Repository map
 - `curriculum/ROADMAP.md` — all five priorities and six-month sequence
 - `curriculum/LEARNING_METHOD.md` — lesson methodology
+- `curriculum/HOW_TO_STUDY.md` — how to study each priority and use ChatGPT/GitHub
 - `curriculum/RESOURCE_GUIDE.md` — technical resources
 - `curriculum/PROJECT_INSTRUCTIONS.md` — instructions for ChatGPT tutoring
 - `strategy/90_DAY_PLAN.md` — first 90 days of execution
