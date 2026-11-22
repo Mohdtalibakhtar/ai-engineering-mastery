@@ -1,28 +1,39 @@
 # Learning Progress
 
-**Programme status:** Setup complete; baseline assessment pending  
-**Current priority:** Not started  
-**Current module:** Baseline technical assessment  
+**Programme status:** Setup complete; revised baseline diagnostic pending  
+**Target profile:** Senior AI Systems Engineer  
+**Current priority:** AI Systems Engineering  
+**Current module:** Baseline diagnostic — AI systems architecture  
 **Last updated:** 2026-11-22
 
+## Revised preparation allocation
+| Track | Allocation |
+|---|---:|
+| AI Systems Engineering | 40% |
+| Distributed Systems & System Design | 25% |
+| Production Infrastructure & MLOps | 15% |
+| DSA | 10% |
+| ML Fundamentals & PyTorch | 10% |
+
 ## Track status
-| Priority | Status | Evidence / notes |
+| Track | Status | Evidence / notes |
 |---|---|---|
-| 1. AI Systems Engineering | Not started | |
-| 2. Distributed Systems & System Design | Not started | |
-| 3. Data Structures & Algorithms | Not started | |
-| 4. Machine Learning & PyTorch | Not started | |
-| 5. Production Infrastructure & MLOps | Not started | |
+| AI Systems Engineering | Diagnostic pending | Professional experience with production AI, RAG, agents and MCP; depth to validate |
+| Distributed Systems & System Design | Diagnostic pending | Validate concurrency, durability, consistency and failure reasoning |
+| Production Infrastructure & MLOps | Diagnostic pending | Validate deployment, observability, capacity and operations |
+| DSA | Maintenance track | Independent interview problem-solving to validate |
+| ML Fundamentals & PyTorch | Maintenance track | MSc background; practical depth to validate |
 
 ## Baseline scores
 | Area | Score / level | Evidence | Gaps |
 |---|---|---|---|
-| Python without AI assistance | Pending | | |
-| DSA / LeetCode medium | Pending | | |
-| Distributed systems | Pending | | |
-| LLM internals / inference | Pending | | |
+| LLM internals and inference | Pending | | |
+| RAG and knowledge systems | Pending | | |
+| Agent architecture and evaluation | Pending | | |
+| Distributed systems and reliability | Pending | | |
+| Production infrastructure and observability | Pending | | |
+| DSA / coding | Pending | | |
 | ML / PyTorch | Pending | | |
-| Production infrastructure | Pending | | |
 | System design communication | Pending | | |
 
 ## Project evidence
@@ -30,7 +41,7 @@
 |---|---|---|---|
 | Distributed Agent Runtime | Planned | | |
 | LLM Inference Gateway | Planned | | |
-| TraceCheck Evaluation Platform | Planned | | |
+| TraceCheck Evaluation Platform | Planned / existing project to evolve | | |
 
 ## Known strengths
 - MSc in Data Science; professional experience with production AI applications, multi-agent systems, RAG, MCP and backend architecture.
@@ -38,13 +49,15 @@
 - Enterprise workflow automation and product engineering experience.
 
 ## Gaps to validate
-- Independent coding interview performance.
-- Distributed systems depth under failure/concurrency.
 - LLM inference internals and performance engineering.
-- End-to-end production operations and observability.
+- RAG quality measurement and retrieval diagnosis.
+- Durable agent execution, evaluation and tool security.
+- Distributed systems depth under failure and concurrency.
+- Production operations, observability and capacity planning.
+- Targeted coding interview readiness.
 
 ## Next actions
-1. Complete baseline assessment.
-2. Confirm sustainable weekly learning capacity.
-3. Start Priority 1, Module 1: Transformer Architecture & LLM Internals.
-4. Maintain DSA practice in parallel.
+1. Complete the revised concept-first baseline, starting with the end-to-end LLM request lifecycle.
+2. Identify the highest-leverage conceptual gaps.
+3. Start Month 1: LLM internals and AI system architecture.
+4. Maintain targeted DSA and ML practice without displacing the core systems track.
