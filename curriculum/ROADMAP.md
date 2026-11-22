@@ -1,165 +1,202 @@
-# Six-Month Curriculum
+# Six-Month Curriculum — AI Systems Engineer Track
 
-This programme develops a Senior AI Engineer / AI Systems Engineer profile for top technology companies. The intended specialisation is **AI Systems Engineering**, supported by strong software engineering and distributed-systems fundamentals.
+This programme prepares the learner for Senior AI Engineer / AI Systems Engineer roles, with a specialisation in production AI systems, LLM infrastructure, agentic systems, evaluation and reliability. The longer-term progression is toward Staff / Principal engineering.
+
+## Target engineering profile
+
+An AI Systems Engineer can:
+- Explain how modern LLMs work, including the mechanics and constraints of inference.
+- Design end-to-end AI applications and platforms, not just prompts or API integrations.
+- Build reliable RAG and agentic systems with durable execution, evaluation and security.
+- Reason about distributed systems, data, queues, concurrency, latency and failure.
+- Measure quality, reliability, cost and performance using defensible engineering methods.
+- Operate production AI services and communicate architecture trade-offs clearly.
 
 ## Preparation allocation
 
-| Priority | Track | Time allocation | Why it matters |
+| Priority | Track | Time allocation | Role in the programme |
 |---|---|---:|---|
-| 1 | AI Systems Engineering | 30% | Primary differentiator and specialisation |
-| 2 | Distributed Systems & System Design | 25% | Biggest identified engineering-depth gap |
-| 3 | Data Structures & Algorithms | 20% | Coding-interview critical |
-| 4 | ML Fundamentals & PyTorch | 15% | Preserve model and training depth |
-| 5 | Production Infrastructure & MLOps | 10% | Operate systems reliably in production |
+| 1 | AI Systems Engineering | 40% | Core specialisation and primary differentiator |
+| 2 | Distributed Systems & System Design | 25% | Foundations for correctness, scale and resilience |
+| 3 | Production Infrastructure & MLOps | 15% | Deploy, observe and operate AI systems |
+| 4 | Data Structures & Algorithms | 10% | Targeted coding-interview readiness |
+| 5 | ML Fundamentals & PyTorch | 10% | Model literacy and implementation depth |
 
-These percentages are allocations of preparation time, not estimates of how companies weight interviews. DSA is practised continuously.
+These are preparation allocations, not estimates of interview weighting. Coding remains important, but basic syntax drills are not the centre of the programme. Use coding to prove concepts, build systems, test hypotheses and prepare for relevant interviews.
 
-## Priority 1 — AI Systems Engineering (30%)
-**Outcome:** Engineer the full AI execution lifecycle, not merely integrate model APIs.
+## Priority 1 — AI Systems Engineering (40%)
 
-### 1. LLM internals
-- Tokenisation and context windows.
-- Embeddings and positional information.
-- Transformer architecture, self-attention (Q/K/V), masking and multi-head attention.
-- Transformer blocks, residual connections, normalisation and next-token prediction.
-- Implement a small attention/Transformer component in PyTorch.
+**Outcome:** Design and operate the full AI execution lifecycle, from model request to measurable production outcome.
 
-### 2. Inference engineering — a key differentiator
-- Prefill vs decode and autoregressive generation.
-- KV cache and GPU memory utilisation.
-- Batching and continuous batching.
-- Time-to-first-token (TTFT), inter-token latency, throughput and tail latency.
-- Quantisation, speculative decoding and model serving.
-- Multi-model serving and efficient routing.
+### 1. LLM foundations and internals
+- Tokenisation, token IDs, context windows and token budgets.
+- Embeddings, positional information and representation spaces.
+- Transformer architecture: attention, Q/K/V, masking and multi-head attention.
+- Transformer blocks, residual connections, normalisation and feed-forward layers.
+- Next-token prediction, decoding strategies and model behaviour.
+- Understand tensor shapes and the data flow through a Transformer.
+- Implement or inspect a small attention/Transformer component when it helps validate understanding.
+
+### 2. Inference engineering
+- Request lifecycle: tokenisation, prefill, decode and detokenisation.
+- Autoregressive generation and why decode is sequential.
+- KV cache mechanics, memory growth and cache trade-offs.
+- GPU memory: weights, activations, KV cache and temporary buffers.
+- Compute-bound vs memory-bandwidth-bound workloads.
+- Batching, continuous batching, scheduling and admission control.
+- TTFT, inter-token latency, throughput, queueing delay and tail latency.
+- Quantisation, speculative decoding, prefix caching and model serving.
+- Serving architectures, multi-model routing and capacity planning.
 - Benchmark workloads and explain quality/latency/cost trade-offs.
-- Understand inference architecture first; CUDA kernel engineering is not an initial prerequisite.
+- CUDA kernel engineering is optional enrichment, not an initial prerequisite.
 
-### 3. Advanced RAG
-- Ingestion, parsing, chunking and metadata design.
-- Dense, sparse and hybrid retrieval; BM25.
-- Query rewriting, filters, reranking and context assembly.
-- Graph RAG and knowledge-graph retrieval.
-- Retrieval evaluation: recall@k, precision@k, MRR/nDCG; answer quality and faithfulness.
+### 3. RAG and knowledge systems
+- Ingestion architecture, parsing, normalisation, chunking and metadata.
+- Dense, sparse and hybrid retrieval; BM25 and embedding search.
+- Query rewriting, filters, reranking, context assembly and citations.
+- Graph RAG and knowledge-graph retrieval; when graph structure adds value.
+- Retrieval vs generation failure diagnosis.
+- Retrieval evaluation: recall@k, precision@k, MRR and nDCG.
+- Answer relevance, faithfulness, groundedness and task success.
+- Freshness, access control, tenant isolation and data lifecycle.
 
-### 4. Agent systems
-- Planning, tool calling and orchestration.
-- State, memory and context management.
-- Workflow graphs vs open-ended agents.
-- Durable execution, checkpoints and recovery.
-- Permissions, human-in-the-loop approvals and multi-agent coordination.
-- Retries, idempotency and safe tool execution.
+### 4. Agentic systems and orchestration
+- Tool calling, planning, routing and control flow.
+- Workflows vs autonomous/open-ended agents.
+- State, memory, context management and conversation compaction.
+- Agent runtime architecture and execution state machines.
+- Durable execution, checkpoints, recovery and replay.
+- Queues, worker pools, concurrency limits and scheduling.
+- Retries, idempotency, timeouts, cancellation and compensation.
+- Tool permissions, human approval and safe side effects.
+- Multi-agent coordination, delegation and shared-state hazards.
+- Streaming, interruption and long-running tasks.
 
 ### 5. Evaluation engineering
-- Dataset management and test-case design.
-- Offline and online evaluations.
-- Task, step and trajectory evaluation.
-- Graders, benchmarks and LLM-as-a-judge limitations.
-- Human spot checks, regression suites and experiment tracking.
-- Cost, latency and failure analysis.
+- Define task success and operational quality before selecting metrics.
+- Dataset design, coverage, versioning and representative test cases.
+- Retrieval, answer, tool-call, step and trajectory evaluation.
+- Deterministic assertions, programmatic graders and LLM-as-judge.
+- Judge calibration, bias, variance and limitations.
+- Human review and adjudication.
+- Offline evaluation, online monitoring, canaries and regression gates.
+- Trace analysis, error taxonomies and root-cause diagnosis.
+- Cost, latency, reliability and quality measurement together.
 
-### 6. Reliability and safety
-- Timeouts, bounded retries, backoff, circuit breakers and fallbacks.
-- Partial failures and recovery.
-- Hallucination measurement and guardrails.
-- Prompt injection, data exfiltration and tool authorization.
-- Tenant isolation, audit trails and observability.
+### 6. Reliability, security and governance
+- Timeouts, bounded retries, exponential backoff, jitter and circuit breakers.
+- Partial failures, fallbacks, bulkheads and graceful degradation.
+- Prompt injection, indirect injection and untrusted retrieved content.
+- Tool authorisation, least privilege and approval boundaries.
+- Data exfiltration, secrets handling and sensitive-data controls.
+- Tenant isolation, audit trails and policy enforcement.
+- Observability across model, retrieval, tools, orchestration and infrastructure.
+- SLOs, error budgets and incident response for AI applications.
 
-### 7. Optimisation and fine-tuning
-- Latency, throughput, token-cost optimisation and caching.
+### 7. Optimisation and adaptation
+- Latency, throughput, token-cost and quality optimisation.
+- Caching boundaries: semantic, response, prompt/prefix and retrieval caches.
 - Model routing, context budgets and capacity planning.
-- Supervised fine-tuning (SFT).
-- LoRA and QLoRA.
-- Preference optimisation concepts and evaluation of fine-tuned models.
+- Prompt optimisation vs retrieval changes vs model changes.
+- SFT, LoRA and QLoRA: use cases, constraints and evaluation.
+- Preference optimisation concepts and when fine-tuning is justified.
 
 ## Priority 2 — Distributed Systems & System Design (25%)
-**Outcome:** Design systems that remain correct and available under concurrency, load and partial failure. This is a major identified development area.
+
+**Outcome:** Design systems that remain correct under concurrency, load, retries and partial failure.
 
 Learn in this order:
-1. Concurrency vs parallelism; processes and threads.
-2. Async programming, event loops and non-blocking I/O.
-3. Networking, HTTP/RPC and connection management.
-4. Message queues: Kafka and RabbitMQ.
-5. Delivery semantics, ordering, partitions, consumer groups and backpressure.
-6. Redis and distributed caching.
-7. Database indexing, transactions and isolation.
-8. Replication, partitioning and consistency.
-9. Horizontal scaling and load balancing.
-10. Distributed locks, leases and coordination.
-11. Fault tolerance, circuit breakers, retries and idempotency.
-12. Observability and performance engineering.
+1. Processes, threads, concurrency, parallelism and scheduling.
+2. Async runtimes, event loops, blocking I/O and cancellation.
+3. Networking, HTTP/RPC, connection pools and timeouts.
+4. Queues and event streaming: Kafka and RabbitMQ.
+5. Delivery semantics, duplicate delivery, ordering, partitions and consumer groups.
+6. Backpressure, load shedding and admission control.
+7. Redis, caching, consistency and distributed coordination.
+8. Database indexes, transactions, isolation and connection management.
+9. Replication, partitioning, consistency and data ownership.
+10. Idempotency, deduplication, outbox/inbox patterns and sagas.
+11. Horizontal scaling, load balancing and capacity estimation.
+12. Fault tolerance, observability and performance engineering.
 
 ### System-design exercises
-For every design, explain architecture, APIs, data model, bottlenecks, trade-offs, failure scenarios, scaling strategies and operational metrics.
-- Design ChatGPT.
+For every design, explain requirements, APIs, data model, architecture, bottlenecks, failure scenarios, scaling, security, operational metrics and trade-offs.
+- Design a ChatGPT-like serving platform.
 - Design a distributed task execution engine.
 - Design an LLM inference gateway.
 - Design a multi-tenant RAG platform.
-- Design an agent orchestration platform.
+- Design a durable agent orchestration platform.
 - Design a real-time streaming AI system.
 - Design a distributed rate limiter.
 
-## Priority 3 — Data Structures & Algorithms (20%)
-**Outcome:** Solve coding interview problems independently under time pressure and explain complexity.
+## Priority 3 — Production Infrastructure & MLOps (15%)
 
-| Topic | Target |
-|---|---|
-| Arrays and strings | Strong |
-| Hash maps and sets | Strong |
-| Two pointers and sliding window | Strong |
-| Binary search | Strong |
-| Stacks, queues and linked lists | Strong |
-| Trees and heaps / priority queues | Strong |
-| Graphs, BFS and DFS | Strong |
-| Dynamic programming | Intermediate to strong |
-
-Practice:
-- Start with easy problems, then progress to medium.
-- Aim for 2 problems per day, 5 days per week when sustainable.
-- Target 150–180 well-understood problems over six months, not a rushed problem count.
-- Prioritise patterns over memorised solutions.
-- Explain the approach and time/space complexity aloud.
-- Use Python initially; there is no need to learn several languages for this plan.
-- Keep a mistake log and revisit previously difficult patterns.
-
-## Priority 4 — Machine Learning Fundamentals & PyTorch (15%)
-**Outcome:** Retain enough ML depth to make informed modelling and engineering decisions; this is not a research-scientist track.
-
-Revisit:
-- Supervised and unsupervised learning.
-- Bias-variance trade-off and regularisation.
-- Gradient descent, backpropagation and loss functions.
-- Embeddings and representation learning.
-- CNNs, RNNs and Transformers.
-- Model evaluation and experimentation.
-- PyTorch model implementation.
-
-**Required practical outcome:** Implement a small model in PyTorch, train it, evaluate it, inspect errors and optimise at least one aspect of the training or inference process.
-
-## Priority 5 — Production Infrastructure & MLOps (10%)
 **Outcome:** Deploy, observe, scale and operate AI services reliably.
 
-Deepen:
-- Linux and runtime fundamentals.
-- Docker and containerisation.
-- Kubernetes.
-- CI/CD and deployment strategies.
-- Distributed tracing.
-- Prometheus, Grafana and OpenTelemetry.
-- Model serving with vLLM.
-- Autoscaling and load testing.
-- Security, governance and operational reliability.
+- Linux processes, memory, filesystems, networking and resource limits.
+- Containers, Docker images, networking and storage.
+- Kubernetes primitives, scheduling, probes, autoscaling and deployments.
+- CI/CD, release strategies, canaries and rollback.
+- Distributed tracing with OpenTelemetry.
+- Metrics and dashboards with Prometheus/Grafana.
+- Structured logs, correlation IDs and trace context propagation.
+- Model serving with vLLM or comparable serving systems.
+- Load testing, capacity planning and performance diagnosis.
+- Secrets, IAM, network boundaries and production governance.
 
-Learn through implementation, not certification collection.
+## Priority 4 — Data Structures & Algorithms (10%)
+
+**Outcome:** Maintain practical coding-interview readiness without displacing core systems learning.
+
+Focus on reusable patterns:
+- Arrays, strings, hash maps and sets.
+- Two pointers, sliding window and binary search.
+- Stacks, queues and linked lists.
+- Trees, heaps and priority queues.
+- Graph traversal: BFS and DFS.
+- Dynamic programming fundamentals.
+- Time/space complexity and clear problem explanation.
+
+Practice consistently, typically 3–5 focused problems per week initially, increasing when interviews require it. Prioritise understanding, independent implementation and review of mistakes over raw problem count. Use Python.
+
+## Priority 5 — ML Fundamentals & PyTorch (10%)
+
+**Outcome:** Understand model behaviour and make sound decisions about model use, evaluation and adaptation.
+
+- Supervised/unsupervised learning and representation learning.
+- Bias-variance, regularisation, loss functions and optimisation.
+- Gradient descent and backpropagation at a conceptual and mathematical level.
+- Embeddings and neural network building blocks.
+- CNNs, RNNs and Transformers at an architectural level.
+- Model evaluation, calibration and dataset quality.
+- PyTorch tensors, autograd, training and inference.
+- Fine-tuning concepts and evaluation of adapted models.
+
+Required practical outcome: implement or adapt a small model, train/evaluate it, inspect errors and explain the operational implications.
 
 ## Six-month sequence
 
-| Month | Main emphasis | Parallel practice |
+| Month | Primary emphasis | Applied outcome |
 |---|---|---|
-| 1 | Transformer/LLM fundamentals; concurrency and async | DSA; ML refresh; start Agent Runtime |
-| 2 | Inference; queues; database fundamentals | DSA; PyTorch implementation |
-| 3 | RAG; reliability; Kafka/Redis; Docker/CI | DSA; system-design exercises |
-| 4 | Agent runtime; evaluation; Kubernetes | DSA; fine-tuning concepts |
-| 5 | Optimisation; observability; inference gateway | DSA; capstone benchmarks |
-| 6 | Production architecture; portfolio and interviews | DSA mocks; project hardening |
+| 1 | LLM/Transformer internals; AI system architecture; async and concurrency foundations | Explain end-to-end LLM request flow; architecture brief for an AI application |
+| 2 | Inference engineering; GPU/KV-cache constraints; serving and queueing | Inference benchmark and performance analysis |
+| 3 | Advanced RAG; retrieval evaluation; data and access-control design | Measured RAG pipeline with versioned evaluation dataset |
+| 4 | Agent runtime; durable execution; distributed reliability and security | Working Distributed Agent Runtime with failure recovery |
+| 5 | Evaluation engineering; observability; optimisation and model routing | TraceCheck evaluation platform improvements and LLM gateway |
+| 6 | Production hardening; system design; portfolio and interview preparation | End-to-end capstone, architecture defence and interview simulations |
 
-Recalibrate this sequence after the baseline assessment. Do not attempt to master all five tracks simultaneously at equal depth.
+Distributed systems and infrastructure are threaded through all six months rather than postponed until their dedicated modules. DSA and ML are maintained as supporting tracks.
+
+## Learning and assessment standard
+
+For every major concept:
+1. State the problem it solves and the assumptions it makes.
+2. Explain the internal mechanism and relevant mathematics.
+3. Trace data/control flow through the architecture.
+4. Compare alternatives and articulate trade-offs.
+5. Analyse failure modes, security and operational behaviour.
+6. Implement a focused proof or production-relevant component where useful.
+7. Test, measure and explain observed behaviour.
+8. Defend the design verbally, as in a senior engineering review.
+
+A concept is not mastered by recognising terminology or using a framework. Evidence must show independent explanation, reasoning, implementation where appropriate, and diagnosis under realistic constraints.
